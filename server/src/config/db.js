@@ -4,14 +4,14 @@ import { env } from "./env.js";
 export const dbState = { mode: "memory", connected: false };
 
 export async function connectDatabase() {
-  if (!env.MONGODB_URI) {
+  if (!env.MONGODB_URI || !env.USE_MONGODB) {
     dbState.mode = "memory";
     dbState.connected = false;
     return dbState;
   }
 
   try {
-    await mongoose.connect(env.MONGODB_URI);
+    await mongoose.connect(env.MONGODB_URI, { serverSelectionTimeoutMS: 5000 });
     dbState.mode = "mongo";
     dbState.connected = true;
   } catch (error) {

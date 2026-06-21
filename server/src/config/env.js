@@ -9,6 +9,7 @@ export const env = {
   CLIENT_URL: process.env.CLIENT_URL || "http://localhost:5173",
   CLIENT_URLS: list(process.env.CLIENT_URLS || ""),
   MONGODB_URI: process.env.MONGODB_URI || "",
+  USE_MONGODB: process.env.USE_MONGODB === "true",
   JWT_SECRET: process.env.JWT_SECRET || "careerpilot-local-development-secret",
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || "7d",
   OLLAMA_BASE_URL: process.env.OLLAMA_BASE_URL || "http://localhost:11434",
