@@ -28,6 +28,10 @@ app.use(cors({
 }));
 app.use(express.json({ limit: "1mb" }));
 
+app.get("/", (req, res) => {
+  res.json({ status: "ok", service: "CareerPilot AI API", health: "/api/health" });
+});
+
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", service: "CareerPilot AI API", aiRuntime: "Ollama local inference", autoApplyEnabled: false });
 });
